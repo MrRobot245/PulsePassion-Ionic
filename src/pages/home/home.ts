@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { SearchPage } from '../search/search';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -8,11 +8,11 @@ import { NavController } from 'ionic-angular';
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
-
+ this.navCtrl = navCtrl;
   }
-	searchItem(query=this.searchquery){
-		console.log(query);
-  // this.nav.push(SearchPage);
+
+  searchItem(){
+  this.navCtrl.push(SearchPage);
 }
 
 }
