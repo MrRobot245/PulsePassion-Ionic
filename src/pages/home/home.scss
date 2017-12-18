@@ -1,3 +1,14 @@
 page-home {
+  .pulse-image {
+    background-image: url("/assets/imgs/logo.jpg");
+    height: 200px;
+    width: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 
+  .text-centered {
+    text-align: center;
+  }
 }

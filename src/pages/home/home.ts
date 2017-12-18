@@ -10,5 +10,9 @@ export class HomePage {
   constructor(public navCtrl: NavController) {
 
   }
+	searchItem(query=this.searchquery){
+		console.log(query);
+  // this.nav.push(SearchPage);
+}
 
 }
