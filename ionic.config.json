@@ -1,0 +1,8 @@
+{
+  "name": "myPulse",
+  "app_id": "3180b819",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
