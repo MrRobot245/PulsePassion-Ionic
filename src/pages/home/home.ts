@@ -12,7 +12,9 @@ export class HomePage {
   }
 
   searchItem(){
-  this.navCtrl.push(SearchPage);
+  this.navCtrl.push(SearchPage,{
+	   paramSearch: this.searchquery
+  });
 }
 
 }
