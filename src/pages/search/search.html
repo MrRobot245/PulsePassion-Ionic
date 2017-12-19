@@ -6,7 +6,18 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-  </ion-list>
+<ion-content padding>
+	<!-- <ion-buttons end>
+   <button ion-button icon-only (click)="downloadCSV()">
+	   <ion-icon name="download"></ion-icon>
+	 </button>
+ </ion-buttons> -->
+
+ <ion-list inset>
+	 <button ion-item *ngFor="let header of csvData">
+	  {{ header }}
+	 </button>
+</ion-list>
+
+
 </ion-content>

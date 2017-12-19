@@ -1,14 +1,74 @@
 import { Component } from '@angular/core';
 import { NavController,NavParams } from 'ionic-angular';
 
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { BehaviorSubject } from 'rxjs/Rx';
+import { Storage } from '@ionic/storage';
+
+import * as papa from 'papaparse';
+
 @Component({
   selector: 'page-search',
   templateUrl: 'search.html'
 })
 export class SearchPage {
 
-  constructor(public navCtrl: NavController,public navParams: NavParams) {
-console.log(this.navParams.get('paramSearch'));
+	csvData: any[] = [];
+ headerRow: any[] = [];
+  constructor(public navCtrl: NavController,public navParams: NavParams, private http: Http) {
+this.readCsvData(this.navParams.get('paramSearch'));
+}
+private readCsvData(search:string) {
+  this.http.get('assets/DB.csv')
+	.subscribe(
+	data => this.extractData(data,search),
+	err => this.handleError(err)
+	);
+
+}
+
+private extractData(res,search) {
+  let csvData = res['_body'] || '';
+  let parsedData = papa.parse(csvData).data;
+  this.headerRow = parsedData[0];
+  parsedData.splice(0, 1);
+  parsedData.sort();
+ let filteredData=[];
+  let i=0;
+  var found=true;
+  let origLen=parsedData.length;
+  for(i=0; i< parsedData.length;i++)
+  {
+	  // console.log(parsedData[i][0]);
+	  var entry=parsedData[i][0].toLowerCase();
+
+	   found = entry.includes(search.toLowerCase());
+	   if(found==false)
+	   {
+		  parsedData.splice(i,1);;
+	   }
+	   else{
+		   // console.log("Found "+parsedData[i][0]);
+		   filteredData.push(parsedData[i][0]);
+	   }
   }
+  console.log(origLen);
+  console.log(filteredData);
+
+  // for()
+  this.csvData = filteredData;
+
+
+  // console.log(search);
+
+}
+private handleError(err) {
+console.log('something went wrong: ', err);
+}
+
+trackByFn(index: any, item: any) {
+return index;
+}
 
 }
