@@ -9,18 +9,30 @@
 <ion-content padding>
 
 	<div class="centered">
-		Category:
-<p>{{item[1]}}</p>
-
+	<p> Category: {{item[1]}}</p>
+<p>Intake: {{item[2]}}</p>
+<div *ngIf="item[2]==='Often'" class="greenImg ratImg">
+</div>
+<div *ngIf="item[2]==='Sometimes'" class="yellowImg ratImg">
+</div>
+<div *ngIf="item[2]==='Limit'" class="redImg ratImg">
+</div>
+<!-- <div class="yellowImg ratImg">
+</div>
+<div class="greenImg ratImg">
+</div> -->
 Rating:
 <p>{{item[6]}}</p>
 </div>
 
-Bad:
+<h2>The Bad:</h2>
 <p>{{item[4]}}</p>
 
-Good:
+<h2>The Good:</h2>
 <p>{{item[5]}}</p>
+
+<h2>Ingredients</h2>
+<p>{{item[3]}}</p>
 
 
 </ion-content>

@@ -3,4 +3,26 @@ page-item {
     text-align: center;
     margin: 0 auto;
   }
+
+  .ratImg {
+    margin: 0 auto;
+    background-size: contain;
+    height: 200px;
+    width: 100%;
+    max-width: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .redImg {
+    background-image: url("/assets/imgs/nnRed.png");
+  }
+
+  .yellowImg {
+    background-image: url("/assets/imgs/nnYellow.png");
+  }
+
+  .greenImg {
+    background-image: url("/assets/imgs/nnGreen.png");
+  }
 }

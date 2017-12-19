@@ -1,3 +1,31 @@
 page-about {
+  .bottom-center {
+    text-align: center;
+    vertical-align: bottom;
+    float: left;
+    width: 100%;
+  }
 
+  .img-left {
+    width: 49%;
+    float: left;
+    display: inline-block;
+    background-image: url("/assets/imgs/logo 2.jpg");
+    height: 150px;
+    width: 100px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .info-right {
+    width: 49%;
+    float: right;
+    display: inline-block;
+  }
+
+  .middle-content {
+    display: block;
+    float: right;
+  }
 }
