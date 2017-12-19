@@ -44,27 +44,22 @@ private extractData(res,search) {
 	  var entry=parsedData[i][0].toLowerCase();
 
 	   found = entry.includes(search.toLowerCase());
-	   if(found==false)
+	   if(found===true)
 	   {
-		  parsedData.splice(i,1);;
-	   }
-	   else{
 		   // console.log("Found "+parsedData[i][0]);
-		   filteredData.push(parsedData[i][0]);
+		   filteredData.push(parsedData[i]);
 	   }
   }
-  console.log(origLen);
-  console.log(filteredData);
+  // console.log(origLen);
+  // console.log(filteredData);
 
-  // for()
   this.csvData = filteredData;
-
-
-  // console.log(search);
-
 }
 private handleError(err) {
 console.log('something went wrong: ', err);
+}
+goProduct(item){
+	console.log(item);
 }
 
 trackByFn(index: any, item: any) {
