@@ -16,8 +16,17 @@
  <ion-list inset>
 	 <button ion-item *ngFor="let header of csvData" (click)='goProduct(header)'>
 	  {{ header[0] }}
+
 	 </button>
+	 <div  *ngIf="csvData.length<1">
+		 <ion-item>
+		 No Results Found
+
+	 </ion-item>
+	   <h3></h3>
+	 </div>
 </ion-list>
+
 
 
 </ion-content>
