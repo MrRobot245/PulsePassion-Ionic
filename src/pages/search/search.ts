@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController,NavParams } from 'ionic-angular';
-
-import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { BehaviorSubject } from 'rxjs/Rx';
-import { Storage } from '@ionic/storage';
+import { ItemPage } from '../item/item';
 
 import * as papa from 'papaparse';
 
@@ -37,7 +34,6 @@ private extractData(res,search) {
  let filteredData=[];
   let i=0;
   var found=true;
-  let origLen=parsedData.length;
   for(i=0; i< parsedData.length;i++)
   {
 	  // console.log(parsedData[i][0]);
@@ -59,7 +55,10 @@ private handleError(err) {
 console.log('something went wrong: ', err);
 }
 goProduct(item){
-	console.log(item);
+	this.navCtrl.push(ItemPage,{
+		 paramItem:item
+	});
+
 }
 
 trackByFn(index: any, item: any) {

@@ -11,9 +11,9 @@ export class HomePage {
  this.navCtrl = navCtrl;
   }
 
-  searchItem(){
+  searchItem(searchquery:string){
   this.navCtrl.push(SearchPage,{
-	   paramSearch: this.searchquery
+	   paramSearch: searchquery
   });
 }
 
